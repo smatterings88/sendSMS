@@ -17,7 +17,7 @@ const validatePhoneNumber = (req, res, next) => {
     
     if (!isValidPhoneNumber(phoneNumber)) {
       throw new ValidationError(
-        'Invalid phone number format. Must start with + followed by 6-15 digits'
+        'Invalid phone number format. Please provide a phone number with 6-15 digits'
       );
     }
     
