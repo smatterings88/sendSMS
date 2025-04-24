@@ -12,8 +12,8 @@ const isValidPhoneNumber = (phoneNumber) => {
     return false;
   }
 
-  // Strip any whitespace
-  const cleanNumber = phoneNumber.trim();
+  // Strip any whitespace and ensure it starts with +
+  const cleanNumber = (phoneNumber.trim().startsWith('+') ? '' : '+') + phoneNumber.trim();
   
   // Allow any number that:
   // 1. Starts with +
@@ -29,8 +29,9 @@ const isValidPhoneNumber = (phoneNumber) => {
  */
 const formatPhoneNumber = (phoneNumber) => {
   if (!phoneNumber) return '';
-  // Keep only + and digits
-  return phoneNumber.trim().replace(/[^\d+]/g, '');
+  // Add + if not present and keep only digits
+  const cleanNumber = phoneNumber.trim();
+  return (cleanNumber.startsWith('+') ? '' : '+') + cleanNumber.replace(/\D/g, '');
 };
 
 module.exports = {
