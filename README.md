@@ -99,7 +99,7 @@ This service includes:
 4. Configure the service:
    - Name: twilio-sms-service
    - Environment: Node
-   - Build Command: `npm install`
+   - Build Command: `npm ci --production`
    - Start Command: `node index.js`
 5. Add environment variables:
    - TWILIO_ACCOUNT_SID
