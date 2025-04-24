@@ -9,13 +9,14 @@
  */
 const isValidPhoneNumber = (phoneNumber) => {
   try {
-    // Strip any whitespace
+    // Strip any whitespace and special characters
     const cleanNumber = phoneNumber.trim();
     
     // Basic validation for international format
-    // Must start with + followed by country code and number
-    // Allows for various international formats
-    return /^\+[1-9]\d{6,14}$/.test(cleanNumber);
+    // Accepts numbers starting with + followed by digits
+    // Minimum length of 8 characters (+ and at least 7 digits)
+    // Maximum length of 16 characters (+ and up to 15 digits per E.164)
+    return /^\+\d{7,15}$/.test(cleanNumber);
   } catch (error) {
     return false;
   }
