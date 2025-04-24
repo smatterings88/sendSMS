@@ -2,7 +2,7 @@ services:
   - type: web
     name: twilio-sms-service
     env: node
-    buildCommand: npm install
+    buildCommand: npm ci --production
     startCommand: node index.js
     envVars:
       - key: NODE_ENV
