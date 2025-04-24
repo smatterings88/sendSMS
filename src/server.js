@@ -10,6 +10,9 @@ const { errorHandler } = require('./middleware/errorHandler');
 
 const app = express();
 
+// Trust proxy - required for rate limiting behind reverse proxies
+app.set('trust proxy', 1);
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
