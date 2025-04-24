@@ -88,3 +88,22 @@ This service includes:
 - Security headers via Helmet
 - Input validation
 - Error handling with appropriate status codes
+
+## Deployment
+
+### Render Deployment Steps
+
+1. Create a new Render account at https://render.com
+2. Click "New +" and select "Web Service"
+3. Connect your repository
+4. Configure the service:
+   - Name: twilio-sms-service
+   - Environment: Node
+   - Build Command: `npm install`
+   - Start Command: `node index.js`
+5. Add environment variables:
+   - TWILIO_ACCOUNT_SID
+   - TWILIO_AUTH_TOKEN
+   - TWILIO_PHONE_NUMBER
+   - NODE_ENV=production
+6. Click "Create Web Service"
