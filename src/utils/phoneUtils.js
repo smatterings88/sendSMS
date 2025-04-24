@@ -8,13 +8,17 @@
  * @returns {boolean} Whether the phone number is valid
  */
 const isValidPhoneNumber = (phoneNumber) => {
-  // More flexible validation for international format
-  // Accepts:
-  // - Must start with +
-  // - Country code (1-3 digits)
-  // - Followed by 6-12 digits
-  const regex = /^\+[1-9]\d{0,2}\d{6,12}$/;
-  return regex.test(phoneNumber);
+  try {
+    // Strip any whitespace
+    const cleanNumber = phoneNumber.trim();
+    
+    // Basic validation for international format
+    // Must start with + followed by country code and number
+    // Allows for various international formats
+    return /^\+[1-9]\d{6,14}$/.test(cleanNumber);
+  } catch (error) {
+    return false;
+  }
 };
 
 /**
@@ -24,7 +28,7 @@ const isValidPhoneNumber = (phoneNumber) => {
  */
 const formatPhoneNumber = (phoneNumber) => {
   // Remove any non-digit characters except the leading +
-  return phoneNumber.replace(/[^\d+]/g, '');
+  return phoneNumber.trim().replace(/[^\d+]/g, '');
 };
 
 module.exports = {
