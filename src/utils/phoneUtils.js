@@ -8,8 +8,12 @@
  * @returns {boolean} Whether the phone number is valid
  */
 const isValidPhoneNumber = (phoneNumber) => {
-  // Basic validation for international format (starts with + followed by digits)
-  const regex = /^\+[1-9]\d{1,14}$/;
+  // More flexible validation for international format
+  // Accepts:
+  // - Must start with +
+  // - Country code (1-3 digits)
+  // - Followed by 6-12 digits
+  const regex = /^\+[1-9]\d{0,2}\d{6,12}$/;
   return regex.test(phoneNumber);
 };
 
