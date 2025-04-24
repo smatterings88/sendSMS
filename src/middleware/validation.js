@@ -17,7 +17,7 @@ const validatePhoneNumber = (req, res, next) => {
     
     if (!isValidPhoneNumber(phoneNumber)) {
       throw new ValidationError(
-        'Invalid phone number format. Please use international format (e.g. +1234567890)'
+        'Invalid phone number format. Must start with + followed by 6-15 digits'
       );
     }
     
